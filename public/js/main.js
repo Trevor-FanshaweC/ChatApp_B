@@ -14,6 +14,10 @@ function showNewMessage({ message }) {
     vm.messages.push(message);
 }
 
+function handleUserTyping(user) {
+    console.log('somebody is typing something');
+}
+
 const { createApp } = Vue 
 
 const vm = createApp({
@@ -35,8 +39,15 @@ const vm = createApp({
             })
 
             this.message = "";
+        },
+
+        catchTextFocus() {
+            // emit a custom typing event and broadcast it to the server
+            socket.emit('user_typing', {
+                name: this.nickname || 'anonymous'
+            })
         }
-    },
+     },
 
     components: {
         newmsg: ChatMsg
@@ -45,3 +56,4 @@ const vm = createApp({
 
   socket.addEventListener('connected', setUserID);
   socket.addEventListener('new_message', showNewMessage);
+  socket.addEventListener('typing', handleUserTyping);
