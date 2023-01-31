@@ -1,16 +1,16 @@
-# Team Page Example with Node, Express and Data
+# Chat Example with Node, Express, Socket.io and Data
 
-A (very) simple Express Generator build with an object that defines a team with roles, description, avatar images etc.
+A (very) simple Express build with an object that handles multiple connections to a chat server, handles messaging and custom user events.
 
 ## Installation
 
-You'll need SASS installed on your system for CSS changes (compile to public/css).
+You'll need SASS installed on your system for CSS changes (compile to public/css). 
 
 Clone, NPM install and run npm start
 
 ## Usage
 
-team partial is loaded via route with dynamic data pulled from the team object in the route file
+Connect to the chat service via localhost and chat away!
 
 ## Contributing
 
